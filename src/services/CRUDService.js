@@ -27,6 +27,7 @@ let createNewUser = async (data) => {
 
 }
 let hashUserPassword = (password) => {
+
     return new Promise(async (resolve, reject) => {
         try {
             var hashPassword = await bcrypt.hashSync(password, salt);
@@ -37,7 +38,22 @@ let hashUserPassword = (password) => {
 
 
     })
+
+
+}
+let getAllUser = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let users = await db.User.findAll({
+                raw: true,
+            });
+            resolve(users);
+        } catch (e) {
+            reject(e);
+        }
+    })
 }
 module.exports = {
-    createNewUser: createNewUser
+    createNewUser: createNewUser,
+    getAllUser: getAllUser,
 } 
