@@ -1,4 +1,5 @@
 import db from "../models/index";
+import db from "../models/index";
 
 let handleUserLogin = (email, password) => {
     return new Promise(async (resolve, reject) => {
