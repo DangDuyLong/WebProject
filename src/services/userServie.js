@@ -1,4 +1,3 @@
-import bcrypt from 'bcryptjs';
 import db from "../models/index";
 
 let handleUserLogin = (email, password) => {
