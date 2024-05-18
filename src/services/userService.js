@@ -7,7 +7,7 @@ let hashUserPassword = (password) => {
     return new Promise(async (resolve, reject) => {
         try {
             let hashUserPassword = await bcrypt.hashSync(password, salt);
-            resolve(hashPassword);
+            resolve(hashUserPassword);
         } catch (e) {
             reject(e);
         }
@@ -107,7 +107,7 @@ let getAllUsers = (userId) => {
     })
 }
 
-let creatNewUser = (data) => {
+let createNewUser = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
             //check email
@@ -115,11 +115,12 @@ let creatNewUser = (data) => {
             if (check === true) {
                 resolve({
                     errCode: 1,
-                    errMessage: "Your's Email is already in used, Plz try another email!"
+                    Message: "Your's Email is already in used, Plz try another email!"
                 })
             }
+
             let hashPasswordFromBcrypt = await hashUserPassword(data.password);
-            await db.User.creat({
+            await db.User.create({
                 email: data.email,
                 password: hashPasswordFromBcrypt,
                 firstName: data.firstName,
@@ -133,6 +134,7 @@ let creatNewUser = (data) => {
                 errCode: 0,
                 message: 'OK'
             })
+
         } catch (e) {
             reject(e);
         }
@@ -140,21 +142,24 @@ let creatNewUser = (data) => {
 }
 
 let deleteUser = (userId) => {
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async (resole, reject) => {
         let foundUser = await db.User.findOne({
             where: { id: userId }
         })
         if (!foundUser) {
-            resolve({
+            resole({
                 errCode: 2,
                 errMessage: `The user isn't exist`
             })
         }
+
+        console.log('check', foundUser)
+
         await db.User.destroy({
             where: { id: userId }
         })
 
-        resolve({
+        resole({
             errCode: 0,
             message: `The user is deleted`
         })
@@ -162,10 +167,10 @@ let deleteUser = (userId) => {
 }
 
 let updateUserData = (data) => {
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async (resole, reject) => {
         try {
             if (!data.id) {
-                resolve({
+                resole({
                     errCode: 2,
                     errMessage: 'Missing required parameters'
                 })
@@ -181,8 +186,13 @@ let updateUserData = (data) => {
 
                 await user.save();
 
-                resolve({
+                resole({
                     errCode: 0,
+                    Message: 'Updated a user successfully'
+                })
+            } else {
+                resole({
+                    errCode: 1,
                     errMessage: `User's not found!`
                 });
             }
@@ -195,7 +205,8 @@ let updateUserData = (data) => {
 module.exports = {
     handleUserLogin: handleUserLogin,
     getAllUsers: getAllUsers,
+    createNewUser: createNewUser,
     deleteUser: deleteUser,
-    updateUserData: updateUserData,
+    updateUserData: updateUserData
 
 }

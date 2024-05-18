@@ -45,7 +45,8 @@ let handleGetAllUsers = async (req, res) => {
 }
 // tạo người dùng
 let handleCreateNewUser = async (req, res) => {
-    let message = await userService.creatNewUser(req.body);
+    let message = await userService.createNewUser(req.body);
+    console.log(message);
     return res.status(200).json(message);
 }
 // xóa người dùng
@@ -72,6 +73,6 @@ module.exports = {
     handleLogin: handleLogin,
     handleGetAllUsers: handleGetAllUsers,
     handleCreateNewUser: handleCreateNewUser,
+    handleEditUser: handleEditUser,
     handleDeleteUser: handleDeleteUser,
-    handleEditUser: handleEditUser
 }
