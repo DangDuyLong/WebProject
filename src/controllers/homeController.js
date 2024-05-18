@@ -78,8 +78,4 @@ module.exports = {
     putCRUD: putCRUD,
     deleteCRUD: deleteCRUD
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> cd45d35a7c2b885d7e526a12184140120f936b17
