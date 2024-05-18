@@ -76,10 +76,5 @@ module.exports = {
     displayGetCRUD: displayGetCRUD,
     getEditCRUD: getEditCRUD,
     putCRUD: putCRUD,
-    deleteCRUD: deleteCRUD
-
-<<<<<<< HEAD
+    deleteCRUD: deleteCRUD,
 }
-=======
-}
->>>>>>> cd45d35a7c2b885d7e526a12184140120f936b17
