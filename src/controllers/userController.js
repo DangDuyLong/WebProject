@@ -24,6 +24,7 @@ let handleLogin = async (req, res) => {
 
     })
 }
+<<<<<<< HEAD
 let handleGetAllUsers = async (req, res) => {
     let id = req.body.id;
 
@@ -48,3 +49,9 @@ module.exports = {
     handleLogin: handleLogin,
     handleGetAllUsers: handleGetAllUsers
 }
+=======
+
+module.exports = {
+    handleLogin: handleLogin
+}
+>>>>>>> cd45d35a7c2b885d7e526a12184140120f936b17
