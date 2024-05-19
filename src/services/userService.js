@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import bcrypt from 'bcryptjs';
-import db from "../models/index";
-
-=======
 import db from "../models/index";
 import bcrypt from 'bcrypt';
->>>>>>> cd45d35a7c2b885d7e526a12184140120f936b17
 let handleUserLogin = (email, password) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -34,20 +28,20 @@ let handleUserLogin = (email, password) => {
                 } else {
 
                     userData.errCode = 2;
-                    userData.errMessage = `User's not found~`
+                    userData.errMessage = `User's not found~`;
 
                 }
 
 
             } else {
                 userData.errCode = 1;
-                userData.errMessage = `Your's Email isn't exist in your system. Plz try other email!`
+                userData.errMessage = `Your's Email isn't exist in your system. Plz try other email!`;
             }
-            resolve(userData)
+            resolve(userData);
         } catch (e) {
-            reject(e)
+            reject(e);
         }
-    })
+    });
 }
 
 
@@ -67,7 +61,6 @@ let checkUserEmail = (userEmail) => {
         }
     })
 }
-<<<<<<< HEAD
 
 let getAllUsers = (userId) => {
     return new Promise(async (resolve, reject) => {
@@ -99,8 +92,4 @@ let getAllUsers = (userId) => {
 module.exports = {
     handleUserLogin: handleUserLogin,
     getAllUsers: getAllUsers
-=======
-module.exports = {
-    handleUserLogin: handleUserLogin
->>>>>>> cd45d35a7c2b885d7e526a12184140120f936b17
 }
