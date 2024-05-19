@@ -1,7 +1,7 @@
 .home-header-container {
     height: 60px;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 40px;
 
 
     .home-header-content {
@@ -10,16 +10,18 @@
         display: flex;
 
         .left-content {
-            width: 25%;
+            width: 20%;
             display: flex;
             align-items: center;
-            border: 1px solid blue;
+
 
             .header-logo {
-                background: url('../../assets/logo_có_màu.png') center center no-repeat;
+                //  background: url('../../assets/logo_có_màu.png') center center no-repeat;
                 height: 100%;
                 width: 100%;
                 cursor: pointer;
+                transform: scale(0.5, 0.5);
+                margin-left: -45px;
             }
 
             i {
@@ -30,8 +32,7 @@
         }
 
         .center-content {
-            width: 50%;
-            border: 1px solid green;
+            width: 55%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -46,17 +47,46 @@
 
         .right-content {
             width: 25%;
-            border: 1px solid yellow;
-
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
+
+            .support {
+                padding-right: 50px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                i {
+                    font-size: 15px;
+                    margin-right: 5px;
+
+
+                }
+            }
+
+            .language-vi {
+                cursor: pointer;
+
+                &.active {
+                    color: orange;
+                }
+            }
+
+            .language-en {
+                margin: 0 10px;
+                cursor: pointer;
+
+                &.active {
+                    color: blue;
+                }
+            }
         }
     }
 }
 
 .home-header-banner {
-    background: url('../../assets/ảnh_nền.png') center center no-repeat;
+    background: url('../../assets/ảnh_nền.png')center center no-repeat;
     height: 100vh;
     width: 100%;
     background-size: 100%;
@@ -64,9 +94,9 @@
     flex-direction: column;
 
     .content-up {
-        border: 1px solid red;
+        //background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(225, 225, 225, 0.1)); // chỉnh mờ ảnh 
         padding-top: 15px;
-        height: 50%;
+        height: 65%;
 
         .title1 {
             text-align: center;
@@ -112,8 +142,11 @@
     }
 
     .content-down {
-        border: 1px solid greenyellow;
-        height: 50%;
+        height: 35%;
+        justify-content: center;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(225, 225, 225, 0.9), rgba(225, 225, 225, 1));
+        display: flex;
+        align-items: center;
 
         .options {
 
@@ -123,7 +156,7 @@
             justify-content: center;
 
             .option-child {
-                border: 1px solid red;
+
                 width: 100px;
 
                 .icon-child {
