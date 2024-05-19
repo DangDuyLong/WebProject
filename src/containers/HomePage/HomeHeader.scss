@@ -54,3 +54,108 @@
         }
     }
 }
+
+.home-header-banner {
+    background: url('../../assets/ảnh_nền.png') center center no-repeat;
+    height: 100vh;
+    width: 100%;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .content-up {
+        border: 1px solid red;
+        padding-top: 15px;
+        height: 50%;
+
+        .title1 {
+            text-align: center;
+            font-size: 30px;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            margin-bottom: 5px;
+            margin-top: 30px;
+            color: #00AEEF;
+            font-weight: 700;
+        }
+
+        .title2 {
+            text-align: center;
+            font-size: 30px;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: #00AEEF;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .search {
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 25px;
+            background: #fafcfe;
+
+            .i {
+                margin: 0 5px;
+            }
+
+            input {
+                height: 30px;
+                width: 360px;
+                background: transparent;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+
+    .content-down {
+        border: 1px solid greenyellow;
+        height: 50%;
+
+        .options {
+
+            text-align: center;
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+
+            .option-child {
+                border: 1px solid red;
+                width: 100px;
+
+                .icon-child {
+                    background: white;
+                    width: 40px;
+                    height: 40px;
+                    padding: 10px;
+                    border-radius: 50%;
+                    text-align: center;
+                    margin: 0 auto;
+                }
+
+                i {
+                    color: #49bce2;
+                    font-size: 20px;
+                }
+            }
+
+            .text-child {
+                font-size: 17px;
+                font-weight: 500;
+                cursor: pointer;
+
+                &:hover {
+                    color: #49bce2;
+
+                }
+            }
+        }
+    }
+
+
+
+
+}
