@@ -93,7 +93,7 @@ class Login extends Component {
                                 <input
                                     className="form-control"
                                     type={this.state.isShowPassword ? 'text' : 'password'}
-                                    placeholder="nhập mật khẩu của bạn"
+                                    placeholder="Nhập mật khẩu của bạn"
                                     onChange={(event) => this.handleOnChangePassword(event)}
                                 />
                                 <span
