@@ -24,10 +24,8 @@ let handleLogin = async (req, res) => {
 
     })
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 47c5e55d30ac2a16c561244668481a403d6b3e5d
+
 let handleGetAllUsers = async (req, res) => {
     let id = req.query.id;
 

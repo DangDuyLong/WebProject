@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-import db from "../models/index";
-import bcrypt from 'bcrypt';
-=======
+
 import bcrypt from 'bcryptjs';
 import db from "../models/index";
 
@@ -21,7 +18,6 @@ let hashUserPassword = (password) => {
 
 
 
->>>>>>> 47c5e55d30ac2a16c561244668481a403d6b3e5d
 let handleUserLogin = (email, password) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -209,13 +205,9 @@ let updateUserData = (data) => {
 
 module.exports = {
     handleUserLogin: handleUserLogin,
-<<<<<<< HEAD
-    getAllUsers: getAllUsers
-=======
     getAllUsers: getAllUsers,
     createNewUser: createNewUser,
     deleteUser: deleteUser,
     updateUserData: updateUserData
 
->>>>>>> 47c5e55d30ac2a16c561244668481a403d6b3e5d
 }
