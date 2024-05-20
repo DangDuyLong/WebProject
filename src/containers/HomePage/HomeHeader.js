@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import logo from '../../assets/logo_có_màu.png';
 import { LANGUAGES } from '../../utils';
 import './HomeHeader.scss';
 
@@ -23,7 +22,7 @@ class HomeHeader extends Component {
                     <div className="home-header-content">
                         <div className="left-content">
                             <i className="fas fa-bars"></i>
-                            <img className="header-logo" src={logo} />
+
                         </div>
                         <div className="center-content">
                             <div className="child-content">
