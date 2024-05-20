@@ -33,10 +33,7 @@ let getEditCRUD = async (req, res) => {
     let userId = req.query.id;
     if (userId) {
         let userData = await CRUDService.getUserInfoById(userId);
-        //check userdata not found
 
-
-        //let userData
         return res.render('editCRUD.ejs', {
             user: userData
         });
@@ -77,11 +74,6 @@ module.exports = {
     getEditCRUD: getEditCRUD,
     putCRUD: putCRUD,
 
-<<<<<<< HEAD
+
 
 }
-
-=======
-    deleteCRUD: deleteCRUD,
-}
->>>>>>> f49044a08f509f47d5968c0ea03ca8e460bae1d3
