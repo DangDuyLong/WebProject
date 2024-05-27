@@ -16,17 +16,12 @@ let initWebRoutes = (app) => {
     router.get('/delete-crud', homeController.deleteCRUD);
 
     router.post('/api/login', userController.handleLogin);
-<<<<<<< HEAD
-
-    router.get('/api/get-all-users', userController.handleGetAllUsers);
 
 
-=======
     router.get('/api/get-all-users', userController.handleGetAllUsers);
     router.post('/api/create-new-user', userController.handleCreateNewUser);
     router.put('/api/edit-user', userController.handleEditUser);
     router.delete('/api/delete-user', userController.handleDeleteUser);
->>>>>>> f49044a08f509f47d5968c0ea03ca8e460bae1d3
 
     router.get('/allcode', userController.getAllCode);
 

@@ -1,8 +1,3 @@
-
-import db from "../models/index";
-import bcrypt from 'bcrypt';
-
-
 import bcrypt from 'bcryptjs';
 import db from "../models/index";
 
@@ -232,14 +227,10 @@ let getAllCodeService = (typeInput) => {
 }
 module.exports = {
     handleUserLogin: handleUserLogin,
-<<<<<<< HEAD
     getAllUsers: getAllUsers,
     createNewUser: createNewUser,
     deleteUser: deleteUser,
     updateUserData: updateUserData,
     getAllCodeService: getAllCodeService
-=======
-    getAllUsers: getAllUsers
->>>>>>> 41a2e932c08f690f1d9f330c1b3fc8ac6700eacf
 
 }
