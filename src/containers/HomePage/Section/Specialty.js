@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Slider from "react-slick";
-import './Specialty.scss';
 
 
 //import specialtyImg from "../../../assets/Specialty/khoa-ngoai.jpeg";

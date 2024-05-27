@@ -11,7 +11,6 @@ import Home from '../routes/Home';
 import System from '../routes/System';
 import { path } from '../utils';
 import Login from './Auth/Login';
-import Header from './Header/Header';
 import HomePage from './HomePage/HomePage.js';
 
 class App extends Component {
@@ -39,7 +38,6 @@ class App extends Component {
             <Fragment>
                 <Router history={history}>
                     <div className="main-container">
-                        {this.props.isLoggedIn && <Header />}
                         <div className="content-container">
                             <CustomScrollbars style={{ height: '100vh', width: '100%' }}>
                                 <Switch>
