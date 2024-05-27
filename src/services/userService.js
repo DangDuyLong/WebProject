@@ -1,3 +1,8 @@
+
+import db from "../models/index";
+import bcrypt from 'bcrypt';
+
+
 import bcrypt from 'bcryptjs';
 import db from "../models/index";
 
@@ -13,6 +18,7 @@ let hashUserPassword = (password) => {
         }
     })
 }
+
 
 
 
@@ -45,20 +51,20 @@ let handleUserLogin = (email, password) => {
                 } else {
 
                     userData.errCode = 2;
-                    userData.errMessage = `User's not found~`
+                    userData.errMessage = `User's not found~`;
 
                 }
 
 
             } else {
                 userData.errCode = 1;
-                userData.errMessage = `Your's Email isn't exist in your system. Plz try other email!`
+                userData.errMessage = `Your's Email isn't exist in your system. Plz try other email!`;
             }
-            resolve(userData)
+            resolve(userData);
         } catch (e) {
-            reject(e)
+            reject(e);
         }
-    })
+    });
 }
 
 
@@ -226,10 +232,14 @@ let getAllCodeService = (typeInput) => {
 }
 module.exports = {
     handleUserLogin: handleUserLogin,
+<<<<<<< HEAD
     getAllUsers: getAllUsers,
     createNewUser: createNewUser,
     deleteUser: deleteUser,
     updateUserData: updateUserData,
     getAllCodeService: getAllCodeService
+=======
+    getAllUsers: getAllUsers
+>>>>>>> 41a2e932c08f690f1d9f330c1b3fc8ac6700eacf
 
 }
