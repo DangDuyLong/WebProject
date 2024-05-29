@@ -1,6 +1,7 @@
 import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
 
+import adminReducer from './adminReducer';
 import appReducer from "./appReducer";
 import userReducer from "./userReducer";
 
@@ -30,4 +31,5 @@ export default (history) => combineReducers({
     router: connectRouter(history),
     user: persistReducer(userPersistConfig, userReducer),
     app: persistReducer(appPersistConfig, appReducer),
+    admin: adminReducer
 })
