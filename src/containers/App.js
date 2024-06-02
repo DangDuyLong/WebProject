@@ -65,11 +65,7 @@ class App extends Component {
                             pauseOnFocusLoss
                             draggable
                             pauseOnHover
-
                         />
-
-
-
                     </div>
                 </Router>
             </Fragment>
