@@ -11,6 +11,7 @@ import System from '../routes/System';
 import { path } from '../utils';
 import Login from './Auth/Login';
 import HomePage from './HomePage/HomePage.js';
+import DetailDoctor from './Patient/Doctor/DetailDoctor.js';
 
 class App extends Component {
 
@@ -44,7 +45,7 @@ class App extends Component {
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                     <Route path={path.HOMEPAGE} component={HomePage} />
-
+                                    <Route path="/users/:id" component={DetailDoctor} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>
