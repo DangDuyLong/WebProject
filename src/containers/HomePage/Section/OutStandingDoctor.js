@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Slider from "react-slick";
 import * as actions from '../../../store/actions';
 import { LANGUAGES } from '../../../utils';
@@ -26,7 +27,10 @@ class OutStandingDoctor extends Component {
     }
 
     handleViewDetailDoctor = (doctor) => {
-        console.log('view infor : ', doctor)
+        if (this.props.history) {
+            this.props.history.push(`/detail-doctor/${doctor.id}`)
+
+        }
     }
     render() {
         let arrDoctors = this.state.arrDoctors;
@@ -95,4 +99,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor));
