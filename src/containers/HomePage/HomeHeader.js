@@ -2,8 +2,10 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { LANGUAGES } from '../../utils';
 import './HomeHeader.scss';
+
 
 import { changeLanguageApp } from "../../store/actions";
 
@@ -12,7 +14,11 @@ class HomeHeader extends Component {
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
     }
-
+    returnToHome = () => {
+        if (this.props.history) {
+            this.props.history.push('/home')
+        }
+    }
     render() {
         let language = this.props.language;
         console.log("check language", language);
@@ -22,7 +28,7 @@ class HomeHeader extends Component {
                     <div className="home-header-content">
                         <div className="left-content">
                             <i className="fas fa-bars"></i>
-                            <div className="header-logo"></div>
+                            <div className="header-logo" onClick={() => this.returnToHome()} />
                         </div>
                         <div className="center-content">
                             <div className="child-content">
@@ -123,4 +129,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));
