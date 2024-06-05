@@ -30,4 +30,4 @@ export default (history) => combineReducers({
     user: persistReducer(userPersistConfig, userReducer),
     app: persistReducer(appPersistConfig, appReducer),
     admin: adminReducer
-})
+});

@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import CustomScrollbars from "../components/CustomScrollbars";
 import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
 import { history } from '../redux';
+import Doctor from '../routes/Doctor.js';
 import Home from '../routes/Home';
 import System from '../routes/System';
 import { path } from '../utils';
@@ -44,8 +45,11 @@ class App extends Component {
                                     <Route path={path.HOME} exact component={(Home)} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
+                                    <Route path={'/doctor/'} component={userIsAuthenticated(Doctor)} />
+
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
+
                                 </Switch>
                             </CustomScrollbars>
                         </div>

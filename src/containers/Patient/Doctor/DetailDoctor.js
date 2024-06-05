@@ -5,6 +5,7 @@ import { LANGUAGES } from "../../../utils";
 import HomeHeader from "../../HomePage/HomeHeader";
 import './DetailDoctor.scss';
 
+
 class DetailDoctor extends Component {
 
     constructor(props) {
@@ -38,6 +39,9 @@ class DetailDoctor extends Component {
             nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.firstName} ${detailDoctor.lastName}`;
 
         }
+
+        // console.log("DCM: ", detailDoctor.Markdown?.contentHTML);
+
         return (
             <>
                 <HomeHeader
@@ -68,13 +72,14 @@ class DetailDoctor extends Component {
                     <div className="schedule-doctor">
 
                     </div>
-                    <div className="detail-infor-doctor">
-                        {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.contentHTML
+                    <div className="detail-infor-doctor custom-html-style ">
+                        {detailDoctor?.Markdown?.contentHTML
                             &&
                             <div dangerouslySetInnerHTML={{ __html: detailDoctor.Markdown.contentHTML }}>
 
                             </div>
                         }
+                        <p></p>
                     </div>
                     <div className="comment-doctor">
 
