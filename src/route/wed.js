@@ -1,6 +1,7 @@
 import express from "express";
 import doctorController from "../controllers/doctorController";
 import homeController from "../controllers/homeController";
+import specialtyController from "../controllers/specialtyController";
 import userController from "../controllers/userController";
 let router = express.Router();
 
@@ -32,6 +33,11 @@ let initWebRoutes = (app) => {
     router.post('/api/save-infor-doctors', doctorController.postInforDoctor);
 
     router.get('/api/get-detail-doctor-by-id', doctorController.getDetailDoctorById);
+
+
+
+    router.post('/api/create-new-specialty', specialtyController.createSpecialty);
+
 
 
 
