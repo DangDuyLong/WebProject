@@ -54,9 +54,22 @@
         "save": "Lưu user",
         "edit": "Lưu thay đổi"
     },
+    
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
+<<<<<<< HEAD
         "more-infor": "Xem thêm",
         "specialty-popular": "Chuyên Khoa phổ biến"
+=======
+        "more-infor": "Xem thêm"
+    },
+    
+    "manage-schedule" : {
+        "title": "Quản lý kế hoạch khám bệnh của bác sĩ",
+        "choose-doctor" : "Chọn bác sĩ",
+        "choose-date" : "Chọn ngày",
+        "save" : "Lưu thông tin"
+>>>>>>> de97cd27a8a5a78717e1e664753c131d26560063
     }
+    
 }
