@@ -272,7 +272,7 @@ export const fetchAllScheduleTime = () => {
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
-                    dataTIME: res.data
+                    dataTime: res.data
                 })
             } else {
                 dispatch({
@@ -280,7 +280,7 @@ export const fetchAllScheduleTime = () => {
                 })
             }
         } catch (e) {
-            console.log('FFETCH_ALLCODE_SCHEDULE_TIME_FAILDED: ', e)
+            console.log('FETCH_ALLCODE_SCHEDULE_TIME_FAILDED: ', e)
             dispatch({
                 type: actionTypes.FETCH_ALL_DOCTORS_FAILDED
             })

@@ -56,18 +56,12 @@
     },
     "homepage": {
         "outstanding-doctor": "Last week's featured doctor",
-<<<<<<< HEAD
-        "more-infor": "More Infor",
-        "specialty-popular": "Popular specialties"
-=======
         "more-infor": "More Infor"
     },
-
-    "manage-schedule" : {
+    "manage-schedule": {
         "title": "Manage doctors' medical examination plans",
         "choose-doctor": "Choose Doctor",
-        "choose-date" : "Choose date",
+        "choose-date": "Choose date",
         "save": "Save info"
->>>>>>> de97cd27a8a5a78717e1e664753c131d26560063
     }
 }
