@@ -3,35 +3,39 @@ import { connect } from "react-redux";
 import './ManageSchedule.scss';
 import { FormattedMessage } from 'react-intl';
 import Select from 'react-select';
-import DatePicker, * as actions from "../../../components/Input/DatePicker";
+import * as actions from '../../../store/actions'
+import {CRUD_ACTIONS, LANGUAGES} from '../../../utils';
+import DatePicker from '../../../components/Input/DatePicker';
 import moment from 'moment';
-import { divide, range } from 'lodash';
-import { render } from 'node-sass';
-import { LANGUAGES } from '../../../utils';
-import { fetchAllDoctors } from '../../../store/actions';
-import { act } from 'react';
-
+import { lang } from 'moment/moment';
 
 class ManageSchedule extends Component {
     constructor(props){
         super(props);
 
         this.state ={
-            listDoctors : [],
+            listDoctors: [],
             selectedDoctors: {},
             currentDate: '',
             rangeTime : []
         }
     }
+
     componentDidMount(){
         this.props.fetchAllDoctors();
         this.props.fetchAllScheduleTime();
     }
+
     componentDidUpdate(prevProps, prevState, snapshot){
         if(prevProps.allDoctors !== this.props.allDoctors){
             let dataSelect = this.buildDataInputSelect(this.props.allDoctors)
             this.setState({
                 listDoctors: dataSelect
+            })
+        }
+        if (prevProps.allScheduleTime !== this.props.allScheduleTime){
+            this.setState({
+                rangeTime: this.props.allScheduleTime
             })
         }
     }
@@ -79,9 +83,9 @@ class ManageSchedule extends Component {
                         <div className="col-6 from-group">
                             <label> <FormattedMessage id="manage-schedule.choose-doctor" /> </label>
                             <select 
-                            value={this.state.selectedDoctor}
-                            onChange={this.handleChangeSelect}
-                            options={this.state.listDoctors}
+                                value={this.state.selectedDoctor}
+                                onChange={this.handleChangeSelect}
+                                options={this.state.listDoctors}
                             />
                         </div>
                         <div className="col-6 form-group">
@@ -94,15 +98,17 @@ class ManageSchedule extends Component {
                             />
                         </div>
                         <div className="col-12 pick-hour-container">
-                            {rangeTime && rangeTime.length > 0 &&
-                                rangeTime.map(item, index) => {
-                                    return(
-                                        <button className="btn btn-schedule" key={index}>
-                                            {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
-                                        </button>
-                                    )
-                                }
-                            }
+                           {rangeTime && rangeTime.length > 0 &&
+                            rangeTime.map((item,index) => {
+                                return(
+                                    <button className="btn btn-schedule" key={index}>
+                                        {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+
+                                    </button>
+                                )
+                            })
+                            
+                           }
     
                         </div>
                         <div className="col-12">
