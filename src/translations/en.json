@@ -56,6 +56,9 @@
     },
     "homepage": {
         "outstanding-doctor": "Last week's featured doctor",
+<<<<<<< HEAD
+        "more-infor": "More Infor",
+        "specialty-popular": "Popular specialties",
         "more-infor": "More Infor"
     },
 

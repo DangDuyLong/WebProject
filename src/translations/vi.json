@@ -57,7 +57,8 @@
     
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
-        "more-infor": "Xem thêm"
+        "more-infor": "Xem thêm",
+        "specialty-popular": "Chuyên Khoa phổ biến"
     },
     
     "manage-schedule" : {
@@ -65,6 +66,7 @@
         "choose-doctor" : "Chọn bác sĩ",
         "choose-date" : "Chọn ngày",
         "save" : "Lưu thông tin"
+>>>>>>> de97cd27a8a5a78717e1e664753c131d26560063
     }
     
 }
