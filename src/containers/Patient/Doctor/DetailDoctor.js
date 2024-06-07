@@ -4,6 +4,7 @@ import { getDetailInforDoctor } from "../../../services/userService";
 import { LANGUAGES } from "../../../utils";
 import HomeHeader from "../../HomePage/HomeHeader";
 import './DetailDoctor.scss';
+import DoctorSchedule from "./DoctorSchedule";
 
 
 class DetailDoctor extends Component {
@@ -70,7 +71,12 @@ class DetailDoctor extends Component {
                         </div>
                     </div>
                     <div className="schedule-doctor">
+                        <div className="content-left">
+                            <DoctorSchedule />
+                        </div>
+                        <div className="content-right">
 
+                        </div>
                     </div>
                     <div className="detail-infor-doctor custom-html-style ">
                         {detailDoctor?.Markdown?.contentHTML
