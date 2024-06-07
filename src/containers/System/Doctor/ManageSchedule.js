@@ -9,36 +9,36 @@ import DatePicker from '../../../components/Input/DatePicker';
 import moment from 'moment';
 import { lang } from 'moment/moment';
 
+
 class ManageSchedule extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.state ={
+        this.state = {
             listDoctors: [],
-            selectedDoctors: {},
+            selectedDoctor: {},
             currentDate: '',
-            rangeTime : []
+            rangeTime: []
         }
     }
-
-    componentDidMount(){
+    componentDidMount() {
         this.props.fetchAllDoctors();
         this.props.fetchAllScheduleTime();
     }
-
-    componentDidUpdate(prevProps, prevState, snapshot){
-        if(prevProps.allDoctors !== this.props.allDoctors){
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.allDoctors !== this.props.allDoctors) {
             let dataSelect = this.buildDataInputSelect(this.props.allDoctors)
             this.setState({
                 listDoctors: dataSelect
             })
         }
-        if (prevProps.allScheduleTime !== this.props.allScheduleTime){
+        if (prevProps.allScheduleTime !== this.props.allScheduleTime) {
             this.setState({
                 rangeTime: this.props.allScheduleTime
             })
         }
     }
+
 
     buildDataInputSelect = (inputData) => {
         let result = [];
@@ -58,9 +58,8 @@ class ManageSchedule extends Component {
 
         return result;
     }
-
     handleChangeSelect = async (selectedOption) => {
-        this.setState({ selectedDoctor : selectedOption});
+        this.setState({ selectedDoctor: selectedOption });
     }
 
     handleOnchangeDatePicker = (date) => {
@@ -70,50 +69,48 @@ class ManageSchedule extends Component {
     }
 
     render() {
-        console.log('Webproject check status: ', this.state)
-        let {rangeTime} = this.state;
-        let {language} = this.props;
-        return(
+        let { rangeTime } = this.state;
+        let { language } = this.props;
+        return (
             <div className="manage-schedule-container">
                 <div className="m-s-title">
-                    <FormattedMessage id="manage-schedule.title"/>
+                    <FormattedMessage id="manage-schedule.title" />
                 </div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-6 from-group">
-                            <label> <FormattedMessage id="manage-schedule.choose-doctor" /> </label>
-                            <select 
+                        <div className="col-6 form-group">
+                            <label> <FormattedMessage id="manage-schedule.choose-doctor" /></label>
+                            <Select
                                 value={this.state.selectedDoctor}
                                 onChange={this.handleChangeSelect}
                                 options={this.state.listDoctors}
                             />
                         </div>
                         <div className="col-6 form-group">
-                            <label> <FormattedMessage id ="manage-schedule.choose-date"/></label>
+                            <label> <FormattedMessage id="manage-schedule.choose-date" /></label>
                             <DatePicker
                                 onChange={this.handleOnchangeDatePicker}
-                                className = "form-control"
+                                className="form-control"
                                 value={this.state.currentDate}
-                                minDate = {new Date()}
+                                minDate={new Date()}
                             />
                         </div>
                         <div className="col-12 pick-hour-container">
-                           {rangeTime && rangeTime.length > 0 &&
-                            rangeTime.map((item,index) => {
-                                return(
-                                    <button className="btn btn-schedule" key={index}>
-                                        {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+                            {rangeTime && rangeTime.length > 0 &&
+                                rangeTime.map((item, index) => {
+                                    return (
+                                        <button className="btn btn-schedule" key={index}>
+                                            {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+                                        </button>
+                                    )
+                                })
+                            }
 
-                                    </button>
-                                )
-                            })
-                            
-                           }
-    
+
                         </div>
                         <div className="col-12">
                             <button className=" btn btn-primary btn-save-schedule">
-                                <FormattedMessage id ="manage-schedule.save"/>
+                                <FormattedMessage id="manage-schedule.save" />
                             </button>
                         </div>
                     </div>
@@ -122,22 +119,23 @@ class ManageSchedule extends Component {
         );
     }
 }
- 
+
 
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
-        language:state.app.language,
+        language: state.app.language,
         allDoctors: state.admin.allDoctors,
-        allScheduleTime:state.admin.allScheduleTime,
+        allScheduleTime: state.admin.allScheduleTime,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         fetchAllDoctors: () => dispatch(actions.fetchAllDoctors()),
+
         fetchAllScheduleTime: () => dispatch(actions.fetchAllScheduleTime()),
-    }; 
+    };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageSchedule);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageSchedule) ;

@@ -71,9 +71,9 @@ class Login extends Component {
     }
 
     handleKeyDown = (event) => {
-        if (event.key === 'Enter' || event.keyCode == 13){
+        if (event.key === 'Enter' || event.keyCode === 13) {
             this.handleLogin();
-        } 
+        }
     }
     render() {
         //JSX

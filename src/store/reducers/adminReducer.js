@@ -83,7 +83,7 @@ const adminReducer = (state = initialState, action) => {
             }
 
         case actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS:
-            state.allDoctors = action.dataTime;
+            state.allScheduleTime = action.dataTime;
             return {
                 ...state
             }
@@ -92,7 +92,7 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             }
-            
+
         default:
             return state;
     }
