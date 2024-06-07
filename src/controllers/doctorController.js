@@ -76,7 +76,6 @@ let getScheduleByDate = async (req, res) => {
         return res.status(200).json(
             infor
         )
-
     } catch (e) {
         console.log(e);
         return res.status(200).json({
@@ -92,5 +91,5 @@ module.exports = {
     postInforDoctor: postInforDoctor,
     getDetailDoctorById: getDetailDoctorById,
     bulkCreateSchedule: bulkCreateSchedule,
-    getScheduleByDate: getScheduleByDate,
+    getScheduleByDate: getScheduleByDate
 }
