@@ -72,26 +72,31 @@ class DetailDoctor extends Component {
                     </div>
                     <div className="schedule-doctor">
                         <div className="content-left">
-                            <DoctorSchedule />
+                            <DoctorSchedule
+                                doctorIdFromParent={detailDoctor && detailDoctor.id ? detailDoctor.id : -1}
+
+                            />
                         </div>
                         <div className="content-right">
 
                         </div>
-                    </div>
-                    <div className="detail-infor-doctor custom-html-style ">
-                        {detailDoctor?.Markdown?.contentHTML
-                            &&
-                            <div dangerouslySetInnerHTML={{ __html: detailDoctor.Markdown.contentHTML }}>
-
-                            </div>
-                        }
-                        <p></p>
-                    </div>
-                    <div className="comment-doctor">
 
                     </div>
+                </div>
+                <div className="detail-infor-doctor custom-html-style ">
+                    {detailDoctor?.Markdown?.contentHTML
+                        &&
+                        <div dangerouslySetInnerHTML={{ __html: detailDoctor.Markdown.contentHTML }}>
+
+                        </div>
+                    }
+                    <p></p>
+                </div>
+                <div className="comment-doctor">
 
                 </div>
+
+
 
             </>
         );

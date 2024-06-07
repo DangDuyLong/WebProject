@@ -1,10 +1,12 @@
+import moment from "moment";
+import 'moment/locale/vi';
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import './DoctorSchedule.scss';
-import moment from "moment";
-import localization from 'moment/locale/vi'
+import { getScheduleDoctorByDate } from '../../../services/userService';
 import { LANGUAGES } from "../../../utils";
-import { add } from "lodash";
+import './DetailDoctor.scss';
+
+
 
 class DoctorSchedule extends Component {
 
@@ -16,31 +18,38 @@ class DoctorSchedule extends Component {
     }
     async componentDidMount() {
         let { language } = this.props;
-
-        console.log('moment vie: ', moment(new Date()).format('dddd - DD/MM'));
-        console.log('moment en: ', moment(new Date()).locale('en').format("ddd - DD/MM"));
+        console.log('moment vie:', moment(new Date()).format('dddd - DD/MM'));
+        console.log('moment en:', moment(new Date()).locale('en').format("ddd - DD/MM"));
         this.setArrDays(language);
-
     }
 
-    setArrDays = () => {
+    setArrDays = (language) => {
         let allDays = []
         for (let i = 0; i < 7; i++) {
             let object = {};
-            if (LANGUAGES === LANGUAGES.VI) {
+            if (language === LANGUAGES.VI) {
                 object.label = moment(new Date()).add(i, 'days').format('dddd - DD/MM');
             } else {
                 object.label = moment(new Date()).add(i, 'days').locale('en').format("ddd - DD/MM");
             }
-
             object.value = moment(new Date()).add(i, 'days').startOf('day').valueOf();
-
             allDays.push(object);
         }
-
         this.setState({
             allDays: allDays,
+
         })
+    }
+    handleOnChangeSelect = async (event) => {
+
+        if (this.props.doctorIdFromParent && this.props.doctorIdFromParent !== -1) {
+            let doctorId = this.props.doctorIdFromParent;
+            let date = event.target.value
+            let res = await getScheduleDoctorByDate(doctorId, date);
+            console.log('check res:', res);
+
+        }
+        console.log('check event:', event.target.value);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -55,7 +64,7 @@ class DoctorSchedule extends Component {
         return (
             <div className="doctor-schedule-container">
                 <div className="all-schedule">
-                    <select>
+                    <select onChange={(event) => this.handleOnChangeSelect(event)}>
                         {allDays && allDays.length > 0 &&
                             allDays.map((item, index) => {
                                 return (
@@ -70,7 +79,7 @@ class DoctorSchedule extends Component {
                             })}
                     </select>
                 </div>
-                <div className="all-available">
+                <div className="all-available-time">
 
                 </div>
             </div>
