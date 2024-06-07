@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // dinh danh mối quan hệ
+            Schedule.belongsTo(models.Allcode,
+                {
+                    foreignKey: 'timeType', targetKey: 'keyMap', as: 'timeTypeData'
+                })
         }
     };
     Schedule.init({
