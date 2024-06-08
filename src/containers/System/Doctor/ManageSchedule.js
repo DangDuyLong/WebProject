@@ -1,14 +1,14 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
 import { connect } from "react-redux";
-import Select from 'react-select';
 import { toast } from 'react-toastify';
 import DatePicker from '../../../components/Input/DatePicker';
 import { saveBulkScheduleDoctor } from '../../../services/userService';
-import * as actions from "../../../store/actions";
-import { LANGUAGES } from '../../../utils';
 import './ManageSchedule.scss';
+import { FormattedMessage } from 'react-intl';
+import Select from 'react-select';
+import * as actions from '../../../store/actions';
+import { LANGUAGES} from '../../../utils';
 
 class ManageSchedule extends Component {
     constructor(props) {
@@ -197,7 +197,6 @@ class ManageSchedule extends Component {
 }
 
 
-
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
@@ -215,4 +214,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageSchedule);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageSchedule) ;
