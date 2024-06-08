@@ -1,6 +1,5 @@
-import _, { reject } from 'lodash';
+import _ from 'lodash';
 import db from "../models/index";
-import { where } from 'sequelize';
 require('dotenv').config();
 
 const MAX_NUMBER_SCHEDULE = process.env.MAX_NUMBER_SCHEDULE;
@@ -232,7 +231,6 @@ let bulkCreateSchedule = (data) => {
         }
     })
 }
-
 let getScheduleByDate = (doctorId, date) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -242,14 +240,18 @@ let getScheduleByDate = (doctorId, date) => {
                     errMessage: 'Missing required parameter'
                 })
             } else {
-                let dataSchedule = await db.schedule.findAll({
+                let dataSchedule = await db.Schedule.findAll({
                     where: {
                         doctorId: doctorId,
                         date: date
                     },
+                    include: [
+                        { model: db.Allcode, as: 'timeTypeData', attributes: ['valueEn', 'valueVi'] },
+                    ],
+                    raw: false,
+                    nest: true
 
                 })
-
                 if (!dataSchedule) dataSchedule = [];
 
                 resolve({
@@ -261,7 +263,10 @@ let getScheduleByDate = (doctorId, date) => {
             reject(e);
         }
     })
+
 }
+
+
 module.exports = {
     getTopDoctorHome: getTopDoctorHome,
     getAllDoctors: getAllDoctors,
