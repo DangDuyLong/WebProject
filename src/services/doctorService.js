@@ -55,8 +55,19 @@ let getAllDoctors = () => {
 let saveDetailInforDoctor = (inputData) => {
     return new Promise(async (resolve, reject) => {
         try {
-            if (!inputData.doctorId || !inputData.contentHTML
-                || !inputData.contentMarkdown || !inputData.action) {
+            if (!inputData.doctorId
+                || !inputData.contentHTML
+                || !inputData.contentMarkdown || !inputData.action
+                || !inputData.selectedProvince
+                || !inputData.selectedPrice
+                || !inputData.selectedPayment
+                || !inputData.addressClinic
+                || !inputData.nameClinic
+                || !inputData.note
+
+
+
+            ) {
                 resolve({
                     errCode: 1,
                     errMessage: 'Missing parameter'
@@ -82,6 +93,31 @@ let saveDetailInforDoctor = (inputData) => {
                         doctorMarkdown.updataAt = new Date();
                         await doctorMarkdown.save()
                     }
+                }
+
+                let doctorInfor = await db.Doctor_Infor.findOne({
+                    where: { doctorId: inputData.doctorId },
+                    raw: false
+                })
+                if (doctorInfor) {
+                    doctorInfor.doctorId = inputData.doctorId;
+                    doctorInfor.priceId = inputData.selectedPrice;
+                    doctorInfor.provinceId = inputData.selectedProvince;
+                    doctorInfor.paymentId = inputData.selectedPayment;
+                    doctorInfor.addressClinic = inputData.addressClinic;
+                    doctorInfor.nameClinic = inputData.nameClinic;
+                    doctorInfor.note = inputData.note;
+                    await doctorInfor.save();
+                } else {
+                    await db.Doctor_Infor.create({
+                        doctorId: inputData.doctorId,
+                        priceId: inputData.selectedPrice,
+                        provinceId: inputData.selectedProvince,
+                        paymentId: inputData.selectedPayment,
+                        addressClinic: inputData.addressClinic,
+                        nameClinic: inputData.nameClinic,
+                        note: inputData.note,
+                    })
                 }
 
                 resolve({
