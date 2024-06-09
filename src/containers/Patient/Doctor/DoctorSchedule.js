@@ -1,5 +1,5 @@
 import moment from "moment";
-import 'moment/locale/vi';
+import localization from 'moment/locale/vi';
 import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
@@ -102,7 +102,7 @@ class DoctorSchedule extends Component {
         console.log('adadadfdf: time', time)
     }
 
-    closeBookingModal =() =>{
+    closeBookingModal = () => {
         this.setState({
             isOpenModalBooking: false
         })
@@ -146,11 +146,11 @@ class DoctorSchedule extends Component {
                                             let timeDisplay = language === LANGUAGES.VI ?
                                                 item.timeTypeData.valueVi : item.timeTypeData.valueEn;
                                             return (
-                                                <button 
+                                                <button
                                                     key={index}
                                                     className={language === LANGUAGES.VI ? 'btn-vie' : 'btn-en'}
                                                     onClick={() => this.handleClickScheduleTime(item)}
-                                                    >
+                                                >
                                                     {timeDisplay}
                                                 </button>
                                             )
@@ -176,10 +176,10 @@ class DoctorSchedule extends Component {
                     </div>
                 </div>
                 <BookingModal
-                    isOpenModal = {isOpenModalBooking}
-                    closeBookingModal = {this.closeBookingModal}
-                    dataTime = {dataScheduleTimeModal}
-                />    
+                    isOpenModal={isOpenModalBooking}
+                    closeBookingModal={this.closeBookingModal}
+                    dataTime={dataScheduleTimeModal}
+                />
             </>
         );
     }

@@ -5,6 +5,8 @@ import { LANGUAGES } from "../../../utils";
 import HomeHeader from "../../HomePage/HomeHeader";
 import './DetailDoctor.scss';
 import DoctorSchedule from "./DoctorSchedule";
+import DoctorExtrainfor from "./DoctorExtrainfor";
+
 
 
 class DetailDoctor extends Component {
