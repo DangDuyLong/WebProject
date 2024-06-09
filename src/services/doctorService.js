@@ -155,6 +155,17 @@ let getDetailDoctorById = (inputId) => {
                         },
 
                         { model: db.Allcode, as: 'positionData', attributes: ['valueEn', 'valueVi'] },
+                        {
+                            model: db.Doctor_Infor,
+                            attributes: {
+                                exclude: ['id', 'doctorId']
+                            },
+                            include: [
+                                { model: db.Allcode, as: 'priceTypeData', attributes: ['valueEn', 'valueVi'] },
+                                { model: db.Allcode, as: 'provinceTypeData', attributes: ['valueEn', 'valueVi'] },
+                                { model: db.Allcode, as: 'paymentTypeData', attributes: ['valueEn', 'valueVi'] },
+                            ]
+                        },
 
                     ],
                     raw: false,
@@ -176,6 +187,7 @@ let getDetailDoctorById = (inputId) => {
         }
     })
 }
+
 
 let bulkCreateSchedule = (data) => {
     return new Promise(async (resolve, reject) => {
@@ -265,11 +277,49 @@ let getScheduleByDate = (doctorId, date) => {
     })
 
 }
+let getExtraInforDoctorById = (idInput) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!idInput) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameter'
+                })
+            } else {
+                let data = await db.Doctor_Infor.findOne({
+                    where: {
+                        doctorId: idInput,
+                    },
+                    attributes: {
+                        exclude: ['id', 'doctorId']
+                    },
+                    include: [
+                        { model: db.Allcode, as: 'priceTypeData', attributes: ['valueEn', 'valueVi'] },
+                        { model: db.Allcode, as: 'provinceTypeData', attributes: ['valueEn', 'valueVi'] },
+                        { model: db.Allcode, as: 'paymentTypeData', attributes: ['valueEn', 'valueVi'] },
 
-let getProfileDoctorById = (doctorId) => {
+                    ],
+                    raw: false,
+                    nest: true
+
+                })
+                if (!data) data = {};
+
+                resolve({
+                    errCode: 0,
+                    data: data
+                })
+            }
+        } catch (e) {
+            reject(e);
+        }
+    })
+
+}
+let getProfileDoctorById = (inputId) => {
     return new Promise(async (resolve, reject) => {
         try{
-            if (!doctorId){
+            if (!inputId){
                 resolve({
                     errCode: 1,
                     errMessage:'Missing required parameters'
@@ -277,7 +327,7 @@ let getProfileDoctorById = (doctorId) => {
             }else{
                 let data = await db.User.findOne({
                     where: {
-                        id: doctorId
+                        id: inputId
                     },
                     attributes: {
                         exclude: ['password',]
