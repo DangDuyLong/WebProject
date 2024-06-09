@@ -1,5 +1,5 @@
 import moment from "moment";
-import 'moment/locale/vi';
+import localization from 'moment/locale/vi';
 import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";

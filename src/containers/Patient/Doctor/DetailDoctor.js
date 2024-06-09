@@ -6,6 +6,8 @@ import HomeHeader from "../../HomePage/HomeHeader";
 import './DetailDoctor.scss';
 import DoctorExtraInfor from "./DoctorExtraInfor";
 import DoctorSchedule from "./DoctorSchedule";
+import DoctorExtrainfor from "./DoctorExtraInfor";
+
 
 
 class DetailDoctor extends Component {

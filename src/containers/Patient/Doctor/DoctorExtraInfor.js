@@ -20,7 +20,6 @@ class DoctorExtraInfor extends Component {
 
     }
 
-
     async componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.language !== prevProps.language) {
 
