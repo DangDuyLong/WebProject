@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 
@@ -11,7 +12,7 @@ class HomeFooter extends Component {
 
         return (
             <div className="home-footer">
-                <p>&copy;2024 Về Chúng TÔi.  Phenikaa Mec. All Rights Reserved.</p>
+                <p>&copy;<FormattedMessage id="homeheader.About-us" /> Phenikaa Mec. All Rights Reserved.</p>
 
             </div>
         );

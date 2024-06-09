@@ -102,7 +102,7 @@ class DoctorSchedule extends Component {
         console.log('adadadfdf: time', time)
     }
 
-    closeBookingModal =() =>{
+    closeBookingModal = () => {
         this.setState({
             isOpenModalBooking: false
         })
@@ -146,11 +146,11 @@ class DoctorSchedule extends Component {
                                             let timeDisplay = language === LANGUAGES.VI ?
                                                 item.timeTypeData.valueVi : item.timeTypeData.valueEn;
                                             return (
-                                                <button 
+                                                <button
                                                     key={index}
                                                     className={language === LANGUAGES.VI ? 'btn-vie' : 'btn-en'}
                                                     onClick={() => this.handleClickScheduleTime(item)}
-                                                    >
+                                                >
                                                     {timeDisplay}
                                                 </button>
                                             )
@@ -161,7 +161,7 @@ class DoctorSchedule extends Component {
                                     <div className="book-free">
                                         <span>
                                             <FormattedMessage id="patient.detail-doctor.choose" />
-                                            <i class="far fa-hand-point-up"></i>
+                                            <i className="far fa-hand-point-up"></i>
                                             <FormattedMessage id="patient.detail-doctor.book-free" />
                                         </span>
                                     </div>
@@ -176,10 +176,10 @@ class DoctorSchedule extends Component {
                     </div>
                 </div>
                 <BookingModal
-                    isOpenModal = {isOpenModalBooking}
-                    closeBookingModal = {this.closeBookingModal}
-                    dataTime = {dataScheduleTimeModal}
-                />    
+                    isOpenModal={isOpenModalBooking}
+                    closeBookingModal={this.closeBookingModal}
+                    dataTime={dataScheduleTimeModal}
+                />
             </>
         );
     }
