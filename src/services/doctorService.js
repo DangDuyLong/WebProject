@@ -206,6 +206,7 @@ let getDetailDoctorById = (inputId) => {
     })
 }
 
+
 let bulkCreateSchedule = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -367,7 +368,6 @@ let getProfileDoctorById = (inputId) => {
                                 { model: db.Allcode, as: 'paymentTypeData', attributes: ['valueEn', 'valueVi'] },
                             ]
                         },
-
                     ],
                     raw: false,
                     nest: true

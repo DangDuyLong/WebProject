@@ -85,6 +85,7 @@ let getScheduleByDate = async (req, res) => {
     }
 }
 
+
 let getExtraInforDoctorById = async (req, res) => {
     try {
         let infor = await doctorService.getExtraInforDoctorById(req.query.doctorId);
@@ -113,8 +114,6 @@ let getProfileDoctorById = async (req, res) => {
         })
     }
 }
-
-
 module.exports = {
     getTopDoctorHome: getTopDoctorHome,
     getAllDoctors: getAllDoctors,
