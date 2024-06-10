@@ -1,4 +1,5 @@
 import express from "express";
+import clinicController from "../controllers/clinicController";
 import doctorController from "../controllers/doctorController";
 import homeController from "../controllers/homeController";
 import patientController from "../controllers/patientController";
@@ -42,6 +43,9 @@ let initWebRoutes = (app) => {
     router.get('/api/get-profile-doctor-by-id', doctorController.getProfileDoctorById);
 
     router.post('/api/patient-book-appointment', patientController.postBookAppointment);
+
+    router.post('/api/create-new-clinic', clinicController.createClinic);
+
 
 
 
