@@ -57,17 +57,17 @@ let checkRequiredFields = (inputData) => {
         'selectedProvince', 'selectedPrice', 'selectedPayment', 'addressClinic',
         'nameClinic', 'note', 'specialtyId'];
 
-    let isvalid = true;
+    let isValid = true;
     let element = '';
     for (let i = 0; i < arrFields.length; i++) {
-        if (!inputData[arr[i]]) {
-            isvalid = false;
+        if (!inputData[arrFields[i]]) {
+            isValid = false;
             element = arrFields[i];
             break;
         }
     }
     return {
-        isvalid: isvalid,
+        isValid: isValid,
         element: element
     }
 
